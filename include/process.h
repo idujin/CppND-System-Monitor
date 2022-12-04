@@ -24,3 +24,5 @@ class Process {
   float cpu_rate_;
 
 };
+
+#endif
