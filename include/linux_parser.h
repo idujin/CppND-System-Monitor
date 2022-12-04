@@ -27,6 +27,10 @@ int RunningProcesses();
 std::string OperatingSystem();
 std::string Kernel();
 
+// helper function
+std::string GetValueFromFile(std::ifstream& stream, std::string target_key);
+std::vector<std::string> GetValuesFromFile(std::ifstream& stream, std::string target_key);
+  
 // CPU
 enum CPUStates {
   kUser_ = 0,
@@ -52,6 +56,7 @@ std::string Ram(int pid);
 std::string Uid(int pid);
 std::string User(int pid);
 long int UpTime(int pid);
+
 };  // namespace LinuxParser
 
 #endif
