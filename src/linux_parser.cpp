@@ -194,7 +194,13 @@ string LinuxParser::Command(int pid) {
 // REMOVE: [[maybe_unused]] once you define the function
 string LinuxParser::Ram(int pid) { 
   std::ifstream stream(kProcDirectory+std::to_string(pid)+kStatusFilename);
-  long ram_mb = stol(GetValueFromFile(stream, "VmSize:"))/1024;
+  long ram_mb = 0;
+  auto value = GetValueFromFile(stream, "VmSize:");
+  try {
+    ram_mb = std::stol(value) / 1024;
+  }
+  catch (...) {
+  }
   return std::to_string(ram_mb); 
 }
 
