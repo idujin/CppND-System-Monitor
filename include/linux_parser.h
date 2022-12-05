@@ -29,8 +29,9 @@ std::string Kernel();
 
 // helper function
 std::string GetValueFromFile(std::ifstream& stream, std::string target_key);
-std::vector<std::string> GetValuesFromFile(std::ifstream& stream, std::string target_key);
-  
+std::vector<std::string> GetValuesFromFile(std::ifstream& stream,
+                                           std::string target_key);
+
 // CPU
 enum CPUStates {
   kUser_ = 0,
