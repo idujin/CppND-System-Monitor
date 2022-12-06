@@ -196,7 +196,8 @@ string LinuxParser::Command(int pid) {
 string LinuxParser::Ram(int pid) {
   std::ifstream stream(kProcDirectory + std::to_string(pid) + kStatusFilename);
   long ram_mb = 0;
-  auto value = GetValueFromFile(stream, "VmSize:");
+  // replaced "VmSize" with "VmRSS" because it gives the exact physical memory being used as a part of Physical RAM
+  auto value = GetValueFromFile(stream, "VmRSS:");
   try {
     ram_mb = std::stol(value) / 1024;
   } catch (...) {
