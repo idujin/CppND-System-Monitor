@@ -186,6 +186,8 @@ string LinuxParser::Command(int pid) {
   if (stream.is_open()) {
     std::getline(stream, cmd);
   }
+  if(cmd.size() > 40)
+    cmd = cmd.substr(0,40)+"...";
   return cmd;
 }
 
