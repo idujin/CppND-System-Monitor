@@ -225,6 +225,8 @@ string LinuxParser::User(int pid) {
       std::istringstream ss(line);
       ss >> user >> pwd >> uid;
       if (uid == target_uid) {
+        if(user.size() > 7)
+          user = user.substr(0,7);
         return user;
       }
     }
